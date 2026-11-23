@@ -35,6 +35,7 @@ export function SiteFooter({
           {email && (
             <a
               href={`mailto:${email}`}
+              aria-label="Email Elysocrates Digital"
               className="mt-4 text-sm text-fg underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
             >
               {email}

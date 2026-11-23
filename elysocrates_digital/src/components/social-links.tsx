@@ -1,18 +1,10 @@
 import type { ComponentType } from "react";
 import type { SiteSocialLink, SocialIconName } from "@/lib/content";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  LinkIcon,
-  XIcon,
-} from "@/components/icons";
+import { LinkIcon, WhatsAppIcon, XIcon } from "@/components/icons";
 
 const iconByName: Record<SocialIconName, ComponentType<{ className?: string }>> = {
-  instagram: InstagramIcon,
+  whatsapp: WhatsAppIcon,
   x: XIcon,
-  facebook: FacebookIcon,
-  linkedin: LinkedInIcon,
   link: LinkIcon,
 };
 
@@ -34,8 +26,8 @@ export function SocialLinks({
             <a
               href={social.href}
               target="_blank"
-              rel="noreferrer"
-              aria-label={social.label}
+              rel="noopener noreferrer"
+              aria-label={social.ariaLabel}
               className="block text-fg transition-colors duration-200 hover:text-accent"
             >
               <Icon className="h-5 w-5" />

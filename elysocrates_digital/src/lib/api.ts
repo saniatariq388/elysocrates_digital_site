@@ -5,13 +5,12 @@ import {
   clients as fallbackClients,
   projects as fallbackProjects,
   siteContentDefaults,
-  socials as fallbackSocials,
+  socials,
   workColumns as fallbackWorkColumns,
   type Artwork,
   type ArtworkCategory,
   type LogoStripItem,
   type SiteSocialLink,
-  type SocialIconName,
   type WorkColumn,
 } from "@/lib/content";
 import { resolveImageUrl } from "@/lib/image-url";
@@ -44,12 +43,6 @@ type LogoItemRecord = {
   kind: "clients" | "projects";
   label: string;
   style: string;
-};
-
-type SocialLinkRecord = {
-  label: string;
-  href: string;
-  icon: string;
 };
 
 type SiteContentField = {
@@ -141,30 +134,8 @@ export async function getLogoStrips(): Promise<{
   return { clients: toStrip("clients"), projects: toStrip("projects") };
 }
 
-function toIcon(value: string): SocialIconName {
-  switch (value) {
-    case "instagram":
-    case "x":
-    case "facebook":
-    case "linkedin":
-    case "link":
-      return value;
-    default:
-      return "link";
-  }
-}
-
 export async function getSocialLinks(): Promise<SiteSocialLink[]> {
-  "use cache";
-  cacheLife({ stale: 30, revalidate: 30 });
-
-  const records = await getJson<SocialLinkRecord[]>("/social-links");
-  if (!records) return fallbackSocials;
-  return records.map((record) => ({
-    label: record.label,
-    href: record.href,
-    icon: toIcon(record.icon),
-  }));
+  return socials;
 }
 
 export async function getSiteSettings(): Promise<Record<string, string>> {
@@ -176,5 +147,7 @@ export async function getSiteSettings(): Promise<Record<string, string>> {
 
   const settings: Record<string, string> = { ...siteContentDefaults };
   for (const field of fields) settings[field.key] = field.value;
+  // Pinned in the frontend; the dashboard/DB still holds the previous address.
+  settings.contact_email = siteContentDefaults.contact_email;
   return settings;
 }

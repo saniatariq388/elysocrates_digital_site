@@ -32,10 +32,7 @@ export const LOGO_STYLE_PRESETS = [
 ] as const;
 
 export const SOCIAL_ICONS = [
-  { value: "instagram", label: "Instagram" },
   { value: "x", label: "X" },
-  { value: "facebook", label: "Facebook" },
-  { value: "linkedin", label: "LinkedIn" },
   { value: "link", label: "Generic link" },
 ] as const;
 

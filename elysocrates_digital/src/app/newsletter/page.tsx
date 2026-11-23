@@ -46,6 +46,7 @@ async function NewsletterContent() {
           Or write to{" "}
           <a
             href={`mailto:${email}`}
+            aria-label="Email Elysocrates Digital"
             className="underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
           >
             {email}

@@ -263,27 +263,32 @@ export const workColumns: WorkColumn[] = [
   },
 ];
 
-export type SocialIconName =
-  | "instagram"
-  | "x"
-  | "facebook"
-  | "linkedin"
-  | "link";
+export type SocialIconName = "whatsapp" | "x" | "link";
 
 export type SiteSocialLink = {
   label: string;
   href: string;
   icon: SocialIconName;
+  ariaLabel: string;
 };
 
 export const socials: SiteSocialLink[] = [
-  { label: "Instagram", href: "https://www.instagram.com", icon: "instagram" },
-  { label: "X", href: "https://x.com", icon: "x" },
-  { label: "Facebook", href: "https://www.facebook.com", icon: "facebook" },
-  { label: "LinkedIn", href: "https://www.linkedin.com", icon: "linkedin" },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/447882508820",
+    icon: "whatsapp",
+    ariaLabel: "Message Elysocrates Digital on WhatsApp",
+  },
+  {
+    label: "X",
+    href: "https://x.com/danae_is_bear",
+    icon: "x",
+    ariaLabel: "Elysocrates Digital on X",
+  },
 ];
 
 // Mirrors backend/app/site_fields.py (site root) defaults; used only when the API is unreachable.
+// contact_email is the exception: it is pinned for display regardless of the API.
 export const siteContentDefaults: Record<string, string> = {
   hero_eyebrow: "Elysocrates Digital",
   hero_title: "Environment Concept Artist & Illustrator",
@@ -326,7 +331,7 @@ export const siteContentDefaults: Record<string, string> = {
     "Leave your email to see new work first, free from the algorithm.",
   newsletter_body_2: "No spam. An email with new work every 3–6 months.",
   newsletter_subscribe_label: "Subscribe",
-  contact_email: "hello@elysocrates.digital",
+  contact_email: "elysocratesdigital@gmail.com",
   footer_newsletter_label: "Newsletter",
   footer_blurb: "New work and studio notes, a few times a year. No spam.",
   footer_copyright:

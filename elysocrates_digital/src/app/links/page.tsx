@@ -45,7 +45,8 @@ async function LinksContent() {
                 <a
                   href={social.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label={social.ariaLabel}
                   className={buttonClass}
                 >
                   {social.label}
@@ -67,7 +68,11 @@ async function LinksContent() {
         <ul className="mx-auto mt-6 flex max-w-2xl flex-col gap-3">
           {email && text("links_email_label") && (
             <li>
-              <a href={`mailto:${email}`} className={buttonClass}>
+              <a
+                href={`mailto:${email}`}
+                aria-label="Email Elysocrates Digital"
+                className={buttonClass}
+              >
                 {text("links_email_label")}
               </a>
             </li>
