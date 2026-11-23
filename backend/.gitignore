@@ -1,0 +1,8 @@
+# env files (never commit secrets; commit only the example)
+.env
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,28 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "saniatariq388", email = "saniatariq388@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "bcrypt>=4.2",
+    "fastapi[standard]>=0.115",
+    "pip>=26.3",
+    "psycopg[binary]>=3.2",
+    "pydantic-settings>=2.4",
+    "pyjwt>=2.9",
+    "python-multipart>=0.0.9",
+    "sqlalchemy>=2.0",
+    "supabase>=2.9",
+    "uvicorn[standard]>=0.30",
+]
+
+[project.scripts]
+backend = "backend:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"

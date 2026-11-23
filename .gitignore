@@ -1,0 +1,15 @@
+# env files (never commit secrets; commit only examples)
+.env
+.env.local
+.env*.local
+!.env.example
+!**/.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node / next
+node_modules/
+.next/
